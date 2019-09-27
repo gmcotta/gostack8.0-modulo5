@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 
 import { FaGithubAlt, FaPlus, FaSpinner } from 'react-icons/fa';
 
-import { Container, Form, SubmitButton, List } from './styles';
+import Container from '../../components/Container/index';
+import { Form, SubmitButton, List } from './styles';
 
 import api from '../../services/api';
 
@@ -61,12 +62,12 @@ export default class Main extends Component {
       <Container>
         <h1>
           <FaGithubAlt />
-          Repositórios
+          Repositories
         </h1>
         <Form onSubmit={this.handleSubmit}>
           <input
             type="text"
-            placeholder="Adicionar repositório"
+            placeholder="Add repository"
             value={newRepo}
             onChange={this.handleInputChange}
           />
@@ -83,7 +84,7 @@ export default class Main extends Component {
             <li key={repo.name}>
               <span>{repo.name}</span>
               <Link to={`/repository/${encodeURIComponent(repo.name)}`}>
-                Detalhes
+                Details
               </Link>
             </li>
           ))}
